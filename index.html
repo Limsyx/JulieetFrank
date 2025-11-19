@@ -174,40 +174,50 @@
     .stay-body{flex:1 1 auto}
     .stay-body small{color:var(--muted)}
 
-  /* ===== VOILE DE MARIÉE RÉALISTE ===== */
+  /* ===== VOILE DE MARIÉE VISUEL ===== */
 .page-veil {
   position: fixed;
   inset: 0;
-  z-index: 999999; /* devant toute la page */
-  pointer-events: none; /* ne bloque pas */
-  
-  /* Base translucide */
-  background: rgba(255, 255, 255, 0.25);
-
-  /* Légère brillance */
-  backdrop-filter: blur(3px);
+  z-index: 9999;
+  pointer-events: none;
 }
 
-/* Texture tulle + plis */
+/* Grand pan de voile qui traverse la page */
+.page-veil::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 25%,
+    rgba(255, 255, 255, 0.55) 55%,
+    rgba(255, 255, 255, 0.10) 85%,
+    rgba(255, 255, 255, 0.0) 100%
+  );
+  transform: translateY(-3%) rotate(-4deg);
+}
+
+/* Motif tulle / dentelle fine par-dessus */
 .page-veil::after {
   content: "";
   position: absolute;
   inset: 0;
-
-  /* SUPERPOSITION DE 3 TEXTURES POUR EFFET VOILE VRAI */
   background-image:
-      url("https://i.imgur.com/4QZEMmW.png"), /* tulle fin */
-      url("https://i.imgur.com/fPh8EtS.png"), /* plis / drapé léger */
-      radial-gradient(circle at 40% 30%, rgba(255,255,255,0.25), transparent 60%);
-
-  background-size:
-      cover,
-      cover,
-      100% 100%;
-
-  background-repeat: no-repeat;
-  opacity: 0.45; /* intensité visible mais élégante */
-  mix-blend-mode: screen; /* lumière douce */
+    repeating-linear-gradient(45deg,
+      rgba(255, 255, 255, 0.55) 0px,
+      rgba(255, 255, 255, 0.55) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    repeating-linear-gradient(-45deg,
+      rgba(255, 255, 255, 0.45) 0px,
+      rgba(255, 255, 255, 0.45) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  opacity: 0.35;          /* plus haut = motif plus visible */
+  mix-blend-mode: screen;  /* effet lumineux, style tissu */
 }
   </style>
 </head>
