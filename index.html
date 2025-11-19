@@ -174,50 +174,27 @@
     .stay-body{flex:1 1 auto}
     .stay-body small{color:var(--muted)}
 
-  /* ===== VOILE DE MARIÉE VISUEL ===== */
-.page-veil {
+/* ===== TEXTURE DENTELLE TRANSPARENTE SUR TOUTE LA PAGE ===== */
+.page-dentelle {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  pointer-events: none;
+  pointer-events: none; /* la texture ne bloque jamais les clics */
+  opacity: 0.22;        /* intensité de la dentelle – tu peux monter à 0.35 si tu veux plus visible */
 }
 
-/* Grand pan de voile qui traverse la page */
-.page-veil::before {
-  content: "";
-  position: absolute;
-  inset: -20%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(255, 255, 255, 0.85) 25%,
-    rgba(255, 255, 255, 0.55) 55%,
-    rgba(255, 255, 255, 0.10) 85%,
-    rgba(255, 255, 255, 0.0) 100%
-  );
-  transform: translateY(-3%) rotate(-4deg);
-}
-
-/* Motif tulle / dentelle fine par-dessus */
-.page-veil::after {
+/* Motif dentelle fine */
+.page-dentelle::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image:
-    repeating-linear-gradient(45deg,
-      rgba(255, 255, 255, 0.55) 0px,
-      rgba(255, 255, 255, 0.55) 1px,
-      transparent 1px,
-      transparent 3px
-    ),
-    repeating-linear-gradient(-45deg,
-      rgba(255, 255, 255, 0.45) 0px,
-      rgba(255, 255, 255, 0.45) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-  opacity: 0.35;          /* plus haut = motif plus visible */
-  mix-blend-mode: screen;  /* effet lumineux, style tissu */
+
+  /* Texture dentelle (motif très fin, non flou) */
+  background-image: url("https://i.imgur.com/7ZeVb4t.png");
+  background-size: 600px 600px; /* taille du motif */
+  background-repeat: repeat;
+
+  mix-blend-mode: screen; /* se fond dans la lumière du site */
 }
   </style>
 </head>
@@ -424,6 +401,8 @@
   wrap.addEventListener('touchend', end);
 </script>
 </body>
-  <div class="page-veil"></div>
+  <body>
+  <div class="page-dentelle"></div>
+  
 </html>
 
