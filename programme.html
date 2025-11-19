@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Programme – Mariage Julie & Franck</title>
+  <meta name="description" content="Programme de la journée du mariage de Julie Derobert & Franck Marion." />
+  <meta name="color-scheme" content="light" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Arapey:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#FFEADC;
+      --panel:#ffffff;
+      --fg:#463a37;
+      --muted:#7c6f6b;
+      --border:#f1ddd3;
+      --primary:#E67527;
+      --primary-strong:#c9621f;
+      --shadow: 0 10px 25px rgba(0,0,0,.06);
+      --shadow-soft: 0 6px 16px rgba(0,0,0,.05);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;background:var(--bg);color:var(--fg);
+      font:16px/1.6 "Arapey", Georgia, serif; letter-spacing:.02em;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:auto;padding:0 20px}
+
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(1.1) blur(8px);
+      background:rgba(255,234,220,.92);
+      border-bottom:1px solid var(--border);
+    }
+    nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .brand{font: 32px/1 "Great Vibes", cursive; color:var(--primary);}
+    .btn{
+      position:relative;display:inline-block;padding:.6rem 1rem;border-radius:999px;
+      border:1px solid var(--border);font-weight:700;background:var(--panel);
+      transition:transform .25s ease, box-shadow .25s ease, background-color .25s ease, border-color .25s ease;
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-soft)}
+    .btn-primary{background:var(--primary);color:#fff;border-color:var(--primary);}
+    .btn-primary:hover{background:var(--primary-strong);}
+
+    main{padding:40px 0 60px;}
+    h1{
+      font-family:"Great Vibes",cursive;
+      font-size:48px;
+      text-align:center;
+      color:var(--primary);
+      margin:0 0 10px;
+    }
+    .intro{
+      text-align:center;
+      max-width:700px;
+      margin:0 auto 32px;
+      color:var(--muted);
+    }
+
+    /* Timeline programme */
+    .timeline{
+      max-width:800px;
+      margin:0 auto;
+      position:relative;
+      padding-left:22px;
+    }
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:12px;
+      top:0;
+      bottom:0;
+      width:2px;
+      background:linear-gradient(to bottom, rgba(0,0,0,.02), rgba(0,0,0,.12));
+    }
+    .entry{
+      position:relative;
+      margin-bottom:18px;
+      padding-left:18px;
+    }
+    .entry-dot{
+      position:absolute;
+      left:3px;
+      top:8px;
+      width:18px;
+      height:18px;
+      border-radius:999px;
+      background:#fff;
+      border:2px solid var(--primary);
+      box-shadow:0 0 0 3px rgba(230,117,39,.15);
+    }
+    .entry-card{
+      background:var(--panel);
+      border-radius:14px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow-soft);
+      padding:10px 14px 12px;
+    }
+    .entry-time{
+      font-weight:700;
+      color:var(--primary);
+      font-size:.95rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+    .entry-title{
+      margin:4px 0 2px;
+      font-weight:700;
+    }
+    .entry-loc{
+      font-size:.9rem;
+      color:var(--muted);
+    }
+    .entry-text{
+      margin:6px 0 0;
+      font-size:.95rem;
+    }
+
+    .back-home{
+      text-align:center;
+      margin-top:26px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="brand">Julie & Franck</div>
+      <a href="index.html" class="btn">← Retour au site</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1>Programme de la journée</h1>
+    <p class="intro">
+      Voici le déroulé prévu de la journée. Les horaires sont donnés à titre indicatif ;  
+      l’important est que vous profitiez pleinement du moment avec nous ✨
+    </p>
+
+    <div class="timeline">
+      <!-- 1. Cérémonie -->
+      <div class="entry">
+        <div class="entry-dot"></div>
+        <div class="entry-card">
+          <div class="entry-time">14h00</div>
+          <div class="entry-title">Cérémonie religieuse</div>
+          <div class="entry-loc">Église Notre-Dame d’Arlanc</div>
+          <p class="entry-text">
+            Accueil des invités puis cérémonie. Merci d’arriver quelques minutes en avance afin que nous puissions commencer à l’heure.
+          </p>
+        </div>
+      </div>
+
+      <!-- 2. Trajet -->
+      <div class="entry">
+        <div class="entry-dot"></div>
+        <div class="entry-card">
+          <div class="entry-time">Vers 15h30</div>
+          <div class="entry-title">Sortie de l’église & photos</div>
+          <div class="entry-loc">Parvis de l’église</div>
+          <p class="entry-text">
+            Sortie des mariés, photos et embrassades, puis départ vers le Château de la Reynerie pour le vin d’honneur.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3. Vin d'honneur -->
+      <div class="entry">
+        <div class="entry-dot"></div>
+        <div class="entry-card">
+          <div class="entry-time">17h00</div>
+          <div class="entry-title">Vin d’honneur</div>
+          <div class="entry-loc">Château de la Reynerie – 63580 Le Vernet-Chaméane</div>
+          <p class="entry-text">
+            Moment convivial autour d’un verre pour fêter notre union et profiter des extérieurs du château.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4. Dîner -->
+      <div class="entry">
+        <div class="entry-dot"></div>
+        <div class="entry-card">
+          <div class="entry-time">Vers 20h00</div>
+          <div class="entry-title">Dîner</div>
+          <div class="entry-loc">Salle de réception du château</div>
+          <p class="entry-text">
+            Dîner assis, discours, quelques surprises… et beaucoup de rires.  
+            Merci de nous signaler en avance allergies et régimes particuliers.
+          </p>
+        </div>
+      </div>
+
+      <!-- 5. Soirée -->
+      <div class="entry">
+        <div class="entry-dot"></div>
+        <div class="entry-card">
+          <div class="entry-time">À partir de 22h30</div>
+          <div class="entry-title">Soirée dansante</div>
+          <div class="entry-loc">Château de la Reynerie</div>
+          <p class="entry-text">
+            Ouverture de bal, musique, piste de danse et douce fin de soirée.  
+            Prévoyez des chaussures confortables pour le reste de la nuit 💃🕺
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="back-home">
+      <a href="index.html" class="btn btn-primary">Retour à la page principale</a>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
