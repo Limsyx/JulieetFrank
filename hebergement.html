@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hébergement – Mariage Julie & Franck</title>
+  <meta name="description" content="Suggestions d'hébergements proches du lieu du mariage de Julie Derobert & Franck Marion." />
+  <meta name="color-scheme" content="light" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Arapey:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#FFEADC;
+      --panel:#ffffff;
+      --fg:#463a37;
+      --muted:#7c6f6b;
+      --border:#f1ddd3;
+      --primary:#E67527;
+      --primary-strong:#c9621f;
+      --shadow: 0 10px 25px rgba(0,0,0,.06);
+      --shadow-soft: 0 6px 16px rgba(0,0,0,.05);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;background:var(--bg);color:var(--fg);
+      font:16px/1.6 "Arapey", Georgia, serif; letter-spacing:.02em;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1100px;margin:auto;padding:0 20px}
+
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(1.1) blur(8px);
+      background:rgba(255,234,220,.92);
+      border-bottom:1px solid var(--border);
+    }
+    nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .brand{font: 32px/1 "Great Vibes", cursive; color:var(--primary);}
+    .btn{
+      position:relative;display:inline-block;padding:.6rem 1rem;border-radius:999px;
+      border:1px solid var(--border);font-weight:700;background:var(--panel);
+      transition:transform .25s ease, box-shadow .25s ease, background-color .25s ease, border-color .25s ease;
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-soft)}
+    .btn-primary{background:var(--primary);color:#fff;border-color:var(--primary);}
+    .btn-primary:hover{background:var(--primary-strong);}
+
+    main{padding:40px 0 60px;}
+    h1{
+      font-family:"Great Vibes",cursive;
+      font-size:48px;
+      text-align:center;
+      color:var(--primary);
+      margin:0 0 10px;
+    }
+    .intro{
+      text-align:center;
+      max-width:720px;
+      margin:0 auto 32px;
+      color:var(--muted);
+    }
+
+    .grid{display:grid;gap:16px}
+    @media (min-width:900px){
+      .grid-3{grid-template-columns:repeat(3,1fr);}
+    }
+
+    .card{
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+      background:var(--panel);
+      box-shadow:var(--shadow);
+    }
+
+    .stay{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .stay-thumb{
+      flex:0 0 64px;
+      width:64px;height:64px;
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow-soft);
+      background:#f8f6f5;
+    }
+    .stay-thumb img{width:100%;height:100%;object-fit:cover}
+    .stay-body{flex:1 1 auto}
+    .stay-body small{color:var(--muted);}
+
+    .back-home{
+      text-align:center;
+      margin-top:28px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="brand">Julie & Franck</div>
+      <a href="index.html" class="btn">← Retour au site</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1>Hébergement</h1>
+    <p class="intro">
+      Voici quelques idées de lieux où vous pourrez dormir à proximité du château.
+      N’hésitez pas à réserver tôt, surtout en période de vacances ou d’événements locaux.
+    </p>
+
+    <div class="grid grid-3">
+      <!-- 1 -->
+      <div class="card">
+        <div class="stay">
+          <div class="stay-thumb">
+            <img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=300" alt="">
+          </div>
+          <div class="stay-body">
+            <strong>Hôtel du Parc</strong><br>
+            <small>8&nbsp;min en voiture • Parking</small>
+          </div>
+        </div>
+        <a class="btn" style="margin-top:12px"
+           href="https://maps.google.com/?q=H%C3%B4tel+du+Parc"
+           target="_blank" rel="noreferrer">Voir sur la carte</a>
+      </div>
+
+      <!-- 2 -->
+      <div class="card">
+        <div class="stay">
+          <div class="stay-thumb">
+            <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=300" alt="">
+          </div>
+          <div class="stay-body">
+            <strong>Auberge des Fleurs</strong><br>
+            <small>12&nbsp;min • Chambres familiales</small>
+          </div>
+        </div>
+        <a class="btn" style="margin-top:12px"
+           href="https://maps.google.com/?q=Auberge+des+Fleurs"
+           target="_blank" rel="noreferrer">Voir sur la carte</a>
+      </div>
+
+      <!-- 3 -->
+      <div class="card">
+        <div class="stay">
+          <div class="stay-thumb">
+            <img src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=300" alt="">
+          </div>
+          <div class="stay-body">
+            <strong>B&amp;B Centre</strong><br>
+            <small>18&nbsp;min • Pratique gare</small>
+          </div>
+        </div>
+        <a class="btn" style="margin-top:12px"
+           href="https://maps.google.com/?q=B%26B+Centre"
+           target="_blank" rel="noreferrer">Voir sur la carte</a>
+      </div>
+
+      <!-- 4 -->
+      <div class="card">
+        <div class="stay">
+          <div class="stay-thumb">
+            <img src="https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=300" alt="">
+          </div>
+          <div class="stay-body">
+            <strong>La Closerie</strong><br>
+            <small>6&nbsp;km • Parking</small>
+          </div>
+        </div>
+        <a class="btn" style="margin-top:12px"
+           href="https://maps.google.com/?q=La+Closerie"
+           target="_blank" rel="noreferrer">Voir sur la carte</a>
+      </div>
+
+      <!-- 5 -->
+      <div class="card">
+        <div class="stay">
+          <div class="stay-thumb">
+            <img src="https://images.pexels.com/photos/261169/pexels-photo-261169.jpeg?auto=compress&cs=tinysrgb&w=300" alt="">
+          </div>
+          <div class="stay-body">
+            <strong>Gîte du Verger</strong><br>
+            <small>10&nbsp;min • 4–6 pers • Parking</small>
+          </div>
+        </div>
+        <a class="btn" style="margin-top:12px"
+           href="https://maps.google.com/?q=G%C3%AEte+du+Verger"
+           target="_blank" rel="noreferrer">Voir sur la carte</a>
+      </div>
+
+      <!-- 6 -->
+      <div class="card">
+        <div class="stay">
+          <div class="stay-thumb">
+            <img src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg?auto=compress&cs=tinysrgb&w=300" alt="">
+          </div>
+          <div class="stay-body">
+            <strong>Hôtel des Remparts</strong><br>
+            <small>14&nbsp;min • Centre-ville</small>
+          </div>
+        </div>
+        <a class="btn" style="margin-top:12px"
+           href="https://maps.google.com/?q=H%C3%B4tel+des+Remparts"
+           target="_blank" rel="noreferrer">Voir sur la carte</a>
+      </div>
+
+      <!-- 7 -->
+      <div class="card">
+        <div class="stay">
+          <div class="stay-thumb">
+            <img src="https://images.pexels.com/photos/271647/pexels-photo-271647.jpeg?auto=compress&cs=tinysrgb&w=300" alt="">
+          </div>
+          <div class="stay-body">
+            <strong>Maison d'Hôtes Les Tilleuls</strong><br>
+            <small>9&nbsp;min • Parking</small>
+          </div>
+        </div>
+        <a class="btn" style="margin-top:12px"
+           href="https://maps.google.com/?q=Maison+d%27H%C3%B4tes+Les+Tilleuls"
+           target="_blank" rel="noreferrer">Voir sur la carte</a>
+      </div>
+
+      <!-- 8 -->
+      <div class="card">
+        <div class="stay">
+          <div class="stay-thumb">
+            <img src="https://images.pexels.com/photos/96444/pexels-photo-96444.jpeg?auto=compress&cs=tinysrgb&w=300" alt="">
+          </div>
+          <div class="stay-body">
+            <strong>Le Relais du Château</strong><br>
+            <small>7&nbsp;min • Parking</small>
+          </div>
+        </div>
+        <a class="btn" style="margin-top:12px"
+           href="https://maps.google.com/?q=Le+Relais+du+Ch%C3%A2teau"
+           target="_blank" rel="noreferrer">Voir sur la carte</a>
+      </div>
+
+      <!-- 9 -->
+      <div class="card">
+        <div class="stay">
+          <div class="stay-thumb">
+            <img src="https://images.pexels.com/photos/4061976/pexels-photo-4061976.jpeg?auto=compress&cs=tinysrgb&w=300" alt="">
+          </div>
+          <div class="stay-body">
+            <strong>Apart-Hôtel La Prairie</strong><br>
+            <small>15&nbsp;min • Studios 2–4</small>
+          </div>
+        </div>
+        <a class="btn" style="margin-top:12px"
+           href="https://maps.google.com/?q=Apart+H%C3%B4tel+La+Prairie"
+           target="_blank" rel="noreferrer">Voir sur la carte</a>
+      </div>
+    </div>
+
+    <div class="back-home">
+      <a href="index.html" class="btn btn-primary">Retour à la page principale</a>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
