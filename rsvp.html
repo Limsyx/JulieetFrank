@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RSVP – Mariage Julie & Franck</title>
+  <meta name="description" content="Formulaire RSVP pour le mariage de Julie Derobert & Franck Marion." />
+  <meta name="color-scheme" content="light" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Arapey:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <!-- 👉 Ici tu peux recopier exactement le <style> de index.html
+       Pour l’exemple, je mets uniquement les classes utiles -->
+  <style>
+    :root{
+      --bg:#FFEADC;
+      --panel:#ffffff;
+      --fg:#463a37;
+      --muted:#7c6f6b;
+      --border:#f1ddd3;
+      --primary:#E67527;
+      --primary-strong:#c9621f;
+      --shadow: 0 10px 25px rgba(0,0,0,.06);
+      --shadow-soft: 0 6px 16px rgba(0,0,0,.05);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;background:var(--bg);color:var(--fg);
+      font:16px/1.6 "Arapey", Georgia, serif; letter-spacing:.02em;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:auto;padding:0 20px}
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(1.1) blur(8px);
+      background:rgba(255,234,220,.92);
+      border-bottom:1px solid var(--border);
+    }
+    nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .brand{font: 32px/1 "Great Vibes", cursive; color:var(--primary);}
+    .btn{
+      position:relative;display:inline-block;padding:.8rem 1.1rem;border-radius:999px;
+      border:1px solid var(--border);font-weight:700;background:var(--panel);
+      transition:transform .25s ease, box-shadow .25s ease, background-color .25s ease, border-color .25s ease;
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-soft)}
+    .btn-primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .btn-primary:hover{background:var(--primary-strong)}
+    main{padding:40px 0 60px}
+    h1{
+      font-family:"Great Vibes",cursive;
+      font-size:48px;
+      text-align:center;
+      color:var(--primary);
+      margin:0 0 10px;
+    }
+    .rsvp-intro{
+      text-align:center;
+      max-width:700px;
+      margin:0 auto 24px;
+      color:var(--muted);
+    }
+    .rsvp-card{
+      max-width:700px;
+      margin:0 auto;
+      padding:26px 22px 28px;
+      border-radius:18px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+    }
+    form{display:grid;gap:14px}
+    label{font-size:.92rem;color:var(--muted);}
+    input,textarea,select{
+      width:100%;
+      padding:.7rem .85rem;
+      border:1px solid var(--border);
+      border-radius:12px;
+      background:transparent;
+      color:inherit;
+    }
+    textarea{resize:vertical;min-height:90px}
+    .field-inline{
+      display:grid;
+      gap:14px;
+    }
+    @media (min-width:700px){
+      .field-inline{grid-template-columns:1fr 1fr;}
+    }
+    .note{font-size:.85rem;color:var(--muted);margin-top:6px;}
+    .center{text-align:center;margin-top:14px;}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="brand">Julie & Franck</div>
+      <a href="index.html" class="btn">← Retour au site</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1>RSVP</h1>
+    <p class="rsvp-intro">
+      Merci de prendre un moment pour nous dire si vous serez présents à notre mariage 💍<br>
+      Vous pouvez remplir un formulaire par famille / couple.
+    </p>
+
+    <div class="rsvp-card">
+      <!-- ⚠️ Remplace l’URL d’action par celle de ton service de formulaire (ex : Formspree) -->
+      <form method="POST" action="https://formspree.io/f/VOTRE_ID_FORMSPREE">
+        <!-- Nom -->
+        <div>
+          <label for="name">Nom &amp; prénom</label>
+          <input type="text" id="name" name="Nom" required placeholder="Votre nom complet">
+        </div>
+
+        <!-- Email + téléphone -->
+        <div class="field-inline">
+          <div>
+            <label for="email">Adresse e-mail</label>
+            <input type="email" id="email" name="Email" required placeholder="vous@example.com">
+          </div>
+          <div>
+            <label for="phone">Téléphone (optionnel)</label>
+            <input type="tel" id="phone" name="Téléphone" placeholder="Pour vous recontacter si besoin">
+          </div>
+        </div>
+
+        <!-- Présence -->
+        <div>
+          <label for="attendance">Serez-vous présents ?</label>
+          <select id="attendance" name="Présence" required>
+            <option value="">Choisissez une option</option>
+            <option value="Oui">Oui, avec plaisir</option>
+            <option value="Non">Non, malheureusement</option>
+            <option value="Peut-être">Incertain pour l’instant</option>
+          </select>
+        </div>
+
+        <!-- Nombre d’invités -->
+        <div class="field-inline">
+          <div>
+            <label for="adults">Nombre d’adultes</label>
+            <input type="number" id="adults" name="Nombre d'adultes" min="0" max="10" placeholder="Ex : 2">
+          </div>
+          <div>
+            <label for="children">Nombre d’enfants</label>
+            <input type="number" id="children" name="Nombre d'enfants" min="0" max="10" placeholder="Ex : 1">
+          </div>
+        </div>
+
+        <!-- Noms détaillés -->
+        <div>
+          <label for="names-detail">Noms des invités</label>
+          <textarea id="names-detail" name="Noms des invités" placeholder="Merci d’indiquer les prénoms et noms de chaque invité."></textarea>
+        </div>
+
+        <!-- Allergies / régimes -->
+        <div>
+          <label for="diet">Allergies ou régimes particuliers</label>
+          <textarea id="diet" name="Allergies / régimes" placeholder="Ex : végétarien, sans gluten, allergies…"></textarea>
+        </div>
+
+        <!-- Message libre -->
+        <div>
+          <label for="message">Message pour les mariés (optionnel)</label>
+          <textarea id="message" name="Message" placeholder="Un petit mot si vous en avez envie 💌"></textarea>
+        </div>
+
+        <!-- Anti-bot (Formspree) -->
+        <input type="text" name="_gotcha" style="display:none">
+
+        <!-- Redirection après envoi (optionnel) -->
+        <input type="hidden" name="_redirect" value="https://julieetfranksemarient.fr/merci.html">
+
+        <div class="center">
+          <button type="submit" class="btn btn-primary">Envoyer ma réponse</button>
+          <div class="note">
+            En cas de souci avec le formulaire, vous pouvez aussi écrire à :
+            <a href="mailto:julieetfrancksemarient@gmail.com">julieetfrancksemarient@gmail.com</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
