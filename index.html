@@ -174,44 +174,41 @@
     .stay-body{flex:1 1 auto}
     .stay-body small{color:var(--muted)}
 
-    /* ===== VOILE SOYEUX SUR TOUTE LA PAGE ===== */
-:root {
-  --veil-color: rgba(255, 255, 255, 0.40);   /* intensité blanche */
-  --veil-blur: 4px;                          /* adoucissement */
-}
-
+  /* ===== VOILE DE MARIÉE RÉALISTE ===== */
 .page-veil {
   position: fixed;
   inset: 0;
-  z-index: 9999;              /* au-dessus de tout */
-  pointer-events: none;       /* ne bloque pas les clics */
-  background: var(--veil-color);
-  backdrop-filter: blur(var(--veil-blur));
-  mix-blend-mode: lighten;
+  z-index: 999999; /* devant toute la page */
+  pointer-events: none; /* ne bloque pas */
+  
+  /* Base translucide */
+  background: rgba(255, 255, 255, 0.25);
+
+  /* Légère brillance */
+  backdrop-filter: blur(3px);
 }
 
-/* --- Texture soyeuse (effet chiffon / voile de mariée) --- */
+/* Texture tulle + plis */
 .page-veil::after {
   content: "";
   position: absolute;
   inset: 0;
 
-  /* Texture soyeuse en superposition légère */
+  /* SUPERPOSITION DE 3 TEXTURES POUR EFFET VOILE VRAI */
   background-image:
-      url("https://i.imgur.com/HgF0j1r.png"),
-      radial-gradient(circle at 30% 40%, rgba(255,255,255,0.18), transparent 60%),
-      radial-gradient(circle at 70% 60%, rgba(255,255,255,0.12), transparent 65%);
+      url("https://i.imgur.com/4QZEMmW.png"), /* tulle fin */
+      url("https://i.imgur.com/fPh8EtS.png"), /* plis / drapé léger */
+      radial-gradient(circle at 40% 30%, rgba(255,255,255,0.25), transparent 60%);
 
   background-size:
-      cover,        /* texture soyeuse */
-      100% 100%,    /* halo blanc 1 */
-      100% 100%;    /* halo blanc 2 */
+      cover,
+      cover,
+      100% 100%;
 
   background-repeat: no-repeat;
-  opacity: 0.32;   /* intensité de la texture */
-  mix-blend-mode: soft-light;
+  opacity: 0.45; /* intensité visible mais élégante */
+  mix-blend-mode: screen; /* lumière douce */
 }
-    
   </style>
 </head>
 <body>
