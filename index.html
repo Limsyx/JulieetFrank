@@ -174,29 +174,7 @@
     .stay-body{flex:1 1 auto}
     .stay-body small{color:var(--muted)}
 
-/* ===== TEXTURE DENTELLE TRANSPARENTE SUR TOUTE LA PAGE ===== */
-.page-dentelle {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none; /* la texture ne bloque jamais les clics */
-  opacity: 0.22;        /* intensité de la dentelle – tu peux monter à 0.35 si tu veux plus visible */
-}
-
-/* Motif dentelle fine */
-.page-dentelle::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  /* Texture dentelle (motif très fin, non flou) */
-  background-image: url("https://i.imgur.com/7ZeVb4t.png");
-  background-size: 600px 600px; /* taille du motif */
-  background-repeat: repeat;
-
-  mix-blend-mode: screen; /* se fond dans la lumière du site */
-}
-  </style>
+ </style>
 </head>
 <body>
 
@@ -318,39 +296,60 @@
   document.getElementById("footerTxt").textContent =
     `${CONFIG.locations.venue.name} • ${CONFIG.locations.venue.address}`;
 
-  // ===== Countdown =====
-  function parseDateISO(iso) {
-    const d = new Date(iso);
-    if (!isNaN(d)) return d;
-    const m = iso.match(/^(\d{4})-(\d{2})-(\d{2})[T\s](\d{2}):(\d{2})(?::(\d{2}))?([+-]\d{2}:\d{2}|Z)?$/);
-    if (!m) return new Date();
-    const [ , Y, M, D, h, min, s = "00", tz = "Z"] = m;
-    const base = Date.UTC(+Y, +M - 1, +D, +h, +min, +s);
-    if (tz === "Z" || !tz) return new Date(base);
-    const sign = tz.startsWith("-") ? -1 : 1;
-    const [th, tm] = tz.slice(1).split(":").map(Number);
-    const offsetMs = sign * (th * 60 + tm) * 60 * 1000;
-    return new Date(base - offsetMs);
-  }
-  const elCount = document.getElementById("countdown");
-  const d = document.getElementById("d");
-  const h = document.getElementById("h");
-  const m = document.getElementById("m");
-  const s = document.getElementById("s");
-  const TARGET = parseDateISO(CONFIG.dateISO);
-  function two(n){ return String(n).padStart(2,"0"); }
-  function tick() {
-    const now = Date.now();
-    const total = TARGET.getTime() - now;
-    elCount.hidden = false;
-    if (total <= 0) { d.textContent = h.textContent = m.textContent = s.textContent = "00"; return; }
-    const days = Math.floor(total / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
-    const mins  = Math.floor((total / (1000 * 60)) % 60);
-    const secs  = Math.floor((total / 1000) % 60);
-    d.textContent = two(days); h.textContent = two(hours); m.textContent = two(mins); s.textContent = two(secs);
-  }
-  tick(); const timer = setInterval(tick, 1000);
+// ===== Nouveau décompte =====
+  (function () {
+    const countdown = document.getElementById("countdown");
+    if (!countdown) return;
+
+    const dEl = document.getElementById("d");
+    const hEl = document.getElementById("h");
+    const mEl = document.getElementById("m");
+    const sEl = document.getElementById("s");
+
+    // Date et heure du mariage (heure locale France)
+    const target = new Date("2026-08-01T14:00:00+02:00").getTime();
+
+    function two(n) {
+      return String(n).padStart(2, "0");
+    }
+
+    function updateCountdown() {
+      const now = Date.now();
+      let diff = target - now;
+
+      // Afficher le bloc
+      countdown.hidden = false;
+
+      // Si la date est passée, on fige à 00
+      if (diff <= 0) {
+        dEl.textContent = "00";
+        hEl.textContent = "00";
+        mEl.textContent = "00";
+        sEl.textContent = "00";
+        clearInterval(timer);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      diff -= days * 24 * 60 * 60 * 1000;
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      diff -= hours * 60 * 60 * 1000;
+
+      const mins = Math.floor(diff / (1000 * 60));
+      diff -= mins * 60 * 1000;
+
+      const secs = Math.floor(diff / 1000);
+
+      dEl.textContent = two(days);
+      hEl.textContent = two(hours);
+      mEl.textContent = two(mins);
+      sEl.textContent = two(secs);
+    }
+
+    updateCountdown();
+    const timer = setInterval(updateCountdown, 1000);
+  })();
 
   // RSVP (mailto avec contenu pré-rempli)
   const mailBtn = document.getElementById("mailtoRSVP");
